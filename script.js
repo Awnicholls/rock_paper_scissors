@@ -1,32 +1,41 @@
 let computerScore = 0;
 let playerScore = 0;
 let round = 0;
-function computerPlay = Math.floor(Math.random() * 3) + 1;
-switch (computerPlay) {
+function computerPlay ();
+    const number = Math.floor(Math.random() * 3) + 1;
+switch (number) {
     case 1:
-        computerPlay = "rock";
+      return  "rock";
         break;
     case 2:
-        computerPlay = "scissors";
+       return  "scissors";
         break;
     default:
-        computerPlay = "paper";
+        return  "paper";
 }
 console.log(computerPlay)
 
-function playRound (computerSelection, playerSelection) {
-    case (computerSelection == "rock" && playerSelection == "paper"):
-    case (computerSelection == "paper" && playerSelection == "scissors"):
-    case (computerSelection == "scissors" && playerSelection == "rock"):
+function playRound(playerSelection, computerSelection) {
+    if (playerSelection == 'rock' && computerSelection == 'Scissors') {
         playerScore++;
-        return `You Win! ${playerSelection} beats ${computerSelection}. Score: ${playerScore} to ${computerScore}`;
-        break;
-    case (computerSelection == "rock" && playerSelection == "scissors"):
-    case (computerSelection == "paper" && playerSelection == "rock"):
-    case (computerSelection == "scissors" && playerSelection == "paper"):
+        return `You Win! Rock beats Scissors. Score: ${playerScore} to ${computerScore}`;
+    } else if (playerSelection == 'rock' && computerSelection == 'Paper') {
         computerScore++;
-        return `You Lose! ${playerSelection} beats ${computerSelection}. Score: ${playerScore} to ${computerScore}`;
-        break;
-    default:
-        `That was a draw. Try Again! Score: ${playerScore} to ${computerScore}`;    
+        return `You Lose! Paper beats rock. Score: ${playerScore} to ${computerScore}`;
+    } else if (playerSelection == 'paper' && computerSelection == 'Scissors') {
+        computerScore++;
+        return `You Lose! Scissors beat paper. Score: ${playerScore} to ${computerScore}`
+    } else if (playerSelection == 'paper' && computerSelection == 'Rock') {
+        playerScore++;
+        return `You Win! Paper beats rock. Score: ${playerScore} to ${computerScore}`
+    } else if (playerSelection == 'scissors' && computerSelection == "Rock") {
+        computerScore++;
+        return `You Lose! Scissors beat rock. Score: ${playerScore} to ${computerScore}`
+    } else if (playerSelection == 'scissors' && computerSelection == 'Paper') {
+        playerScore++;
+        return `You Win! Scissors beat paper. Score: ${playerScore} to ${computerScore}`
+    }
+    else 
+        return `That was a draw. Score: ${playerScore} to ${computerScore}`;
 }
+
