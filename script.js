@@ -37,9 +37,21 @@ function playRound(playerSelection, computerSelection) {
         return `You Win! Scissors beat paper. Score: ${playerScore} to ${computerScore}`
     }
     else 
-        return `That was a draw. Score: ${playerScore} to ${computerScore}`;
+        return `That was a draw. You both played ${playerSelection}. Score: ${playerScore} to ${computerScore}`;
 }
 
-const playerSelection = "rock";
-const computerSelection = computerPlay();
-console.log(playRound(playerSelection, computerSelection));
+function game() {
+    for (let i=0; i < 5; i++) {
+        let playerSelection = prompt ("Choose one: Rock, Paper or Scissors").toLocaleLowerCase();
+        const computerSelection = computerPlay();
+        console.log(playRound(playerSelection, computerSelection));
+    }
+    if (playerScore > computerScore) {
+        console.log(`Congratulations, you're the winner! The final Score was ${playerScore} to ${computerScore}`);
+    } else if (computerScore > playerScore) {
+        console.log(`Unlucky, you have lost. The final Score was ${playerScore} to ${computerScore}`);
+    } else
+        console.log(`You tied. The final Score was ${playerScore} to ${computerScore}`);
+}
+
+game()
