@@ -7,7 +7,7 @@ switch (computerPlay) {
         computerPlay = "rock";
         break;
     case 2:
-        computerPlay = "scissorcs";
+        computerPlay = "scissors";
         break;
     default:
         computerPlay = "paper";
